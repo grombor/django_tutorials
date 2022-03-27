@@ -23,7 +23,8 @@ class Book(models.Model):
         )
     slug = models.SlugField(
         default="", 
-        null=False
+        null=False,
+        db_index=True
         )
 
 
@@ -32,7 +33,7 @@ class Book(models.Model):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse("book-details", args=[self.id])
+        return reverse("book-details", args=[self.slug])
     
 
     def __str__(self):
