@@ -7,10 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <form>
+    <form action="/" method="POST">
+        {% csrf_token %}
+        {% if has_error %}
+            <p>This form has an error.</p>
+        {% endif %}
         <label for="username">Your name</label>
         <input type="text" name="username" id="username">
-        <button>Send</button>
+        <button type="submit">Send</button>
     </form>
 </body>
 </html>
