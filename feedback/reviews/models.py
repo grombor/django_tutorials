@@ -6,4 +6,4 @@ from django.forms import IntegerField
 class Review(models.Model):
     user_name = models.CharField(max_length=100)
     review_text = models.TextField()
-    rating = IntegerField()
+    rating = models.IntegerField()
